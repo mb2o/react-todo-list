@@ -6,23 +6,33 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
   state = {
-    items: [
-      { id: 1, title: 'Vakantiespullen inpakken' },
-      { id: 2, title: 'Boodschappen doen' },
-      { id: 3, title: 'Hond uitlaten' }
-    ],
+    items: [],
     id: uuid(),
     item: '',
     editItem: false
   };
 
   handleChange = e => {
-    console.log('Handle change');
+    this.setState({
+      item: e.target.value
+    });
   };
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log('Submitting Item');
+
+    this.setState(
+      {
+        items: [
+          ...this.state.items,
+          { id: this.state.id, title: this.state.item }
+        ],
+        item: '',
+        id: uuid(),
+        editItem: false
+      },
+      () => console.log(this.state)
+    );
   };
 
   handleClear = () => {
@@ -38,8 +48,6 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state);
-
     return (
       <div className="container">
         <div className="row">
@@ -51,6 +59,7 @@ class App extends Component {
               handleSubmit={this.handleSubmit}
               editItem={this.state.editItem}
             />
+
             <TodoList
               items={this.state.items}
               handleClear={this.handleClear}

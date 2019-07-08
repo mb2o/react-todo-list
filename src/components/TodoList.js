@@ -7,8 +7,6 @@ export default class TodoList extends Component {
       <section>
         <h2>Todo List</h2>
         <TodoItem />
-        <TodoItem />
-        <TodoItem />
       </section>
     );
   }
