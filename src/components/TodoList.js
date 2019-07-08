@@ -16,7 +16,9 @@ export default class TodoList extends Component {
             handleDelete={() => handleDelete(item.id)}
           />
         ))}
-        <button className="btn btn-block btn-danger mt-5" onClick={handleClear}>
+        <button
+          className="btn btn-block btn-danger mt-5 text-uppercase"
+          onClick={handleClear}>
           Clear List
         </button>
       </ul>
