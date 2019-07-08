@@ -33,7 +33,7 @@ class App extends Component {
   };
 
   handleClear = () => {
-    console.log('List cleared');
+    this.setState({ items: [] });
   };
 
   handleEdit = id => {
@@ -41,7 +41,9 @@ class App extends Component {
   };
 
   handleDelete = id => {
-    console.log(id);
+    this.setState({
+      items: this.state.items.filter(item => item.id !== id)
+    });
   };
 
   render() {
