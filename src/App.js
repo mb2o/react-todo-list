@@ -21,18 +21,15 @@ class App extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    this.setState(
-      {
-        items: [
-          ...this.state.items,
-          { id: this.state.id, title: this.state.item }
-        ],
-        item: '',
-        id: uuid(),
-        editItem: false
-      },
-      () => console.log(this.state)
-    );
+    this.setState({
+      items: [
+        ...this.state.items,
+        { id: this.state.id, title: this.state.item }
+      ],
+      item: '',
+      id: uuid(),
+      editItem: false
+    });
   };
 
   handleClear = () => {
