@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <div className="container">
-      <div className="row bg-warning">
+      <div className="row">
         <TodoInput />
         <TodoList />
       </div>
